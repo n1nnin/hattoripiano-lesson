@@ -1,0 +1,57 @@
+---
+
+---
+
+<section class="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src="/images/hero.jpg"
+      alt="ピアノレッスンの風景"
+      class="w-full h-full object-cover"
+      loading="eager"
+      decoding="async"
+    />
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto observe-fade">
+    <!-- Accent Text -->
+    <p class="font-accent text-2xl md:text-3xl mb-4 opacity-90 tracking-wide">
+      Hattori Piano Lesson
+    </p>
+
+    <!-- Main Heading -->
+    <h1 class="font-heading text-4xl md:text-6xl font-bold leading-tight mb-6 tracking-wide">
+      音楽のある暮らしを、<br class="hidden sm:inline" />あなたに
+    </h1>
+
+    <!-- Subheading -->
+    <p class="font-body text-lg md:text-xl opacity-90 mb-10 leading-relaxed max-w-2xl mx-auto">
+      磐田市で約40年。一人ひとりに寄り添うピアノ・声楽教室
+    </p>
+
+    <!-- CTA Button -->
+    <a
+      href="#contact"
+      class="inline-block bg-brown-warm hover:bg-brown-accent text-white font-body font-medium rounded-full px-8 py-4 text-base md:text-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-transform"
+    >
+      体験レッスンのお申し込み
+    </a>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block">
+    <svg
+      class="w-6 h-10 text-white/70"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 40"
+    >
+      <rect x="1" y="1" width="22" height="38" rx="11" stroke-width="2" />
+      <circle cx="12" cy="12" r="3" fill="currentColor" class="animate-pulse" />
+    </svg>
+  </div>
+</section>

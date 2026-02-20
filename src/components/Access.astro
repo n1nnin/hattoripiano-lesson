@@ -1,0 +1,113 @@
+---
+const businessHours = [
+  { day: "月曜", time: "9:30〜19:00" },
+  { day: "火曜", time: "13:00〜19:00" },
+  { day: "水曜", time: "9:30〜19:00" },
+  { day: "土曜", time: "9:00〜19:00" },
+  { day: "木・日", time: "定休日" },
+];
+---
+
+<section id="access" class="bg-cream py-20 px-4">
+  <div class="max-w-6xl mx-auto observe-fade">
+    <!-- Section Heading -->
+    <div class="text-center mb-12">
+      <span class="font-accent text-brown-warm text-2xl">Access</span>
+      <h2 class="font-heading text-3xl md:text-4xl text-brown mt-2">アクセス</h2>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Left: Google Map -->
+      <div class="observe-fade">
+        <iframe
+          src="https://maps.google.com/maps?q=磐田市水掘160&output=embed"
+          class="w-full h-80 md:h-full min-h-[320px] rounded-2xl border-0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="服部ピアノ教室の地図"
+        ></iframe>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="observe-fade">
+        <div class="bg-white rounded-2xl shadow-md p-6 space-y-5">
+          <!-- Address -->
+          <div class="flex items-start gap-3">
+            <span class="text-2xl flex-shrink-0">📍</span>
+            <div>
+              <p class="font-heading text-brown font-bold text-sm mb-1">住所</p>
+              <p class="text-brown-accent font-body">〒438-0085 静岡県磐田市水掘160</p>
+            </div>
+          </div>
+
+          <!-- Access -->
+          <div class="flex items-start gap-3">
+            <span class="text-2xl flex-shrink-0">🚗</span>
+            <div>
+              <p class="font-heading text-brown font-bold text-sm mb-1">アクセス</p>
+              <p class="text-brown-accent font-body">磐田バイパス豊田東ICより車で3分</p>
+            </div>
+          </div>
+
+          <!-- Parking -->
+          <div class="flex items-start gap-3">
+            <span class="text-2xl flex-shrink-0">🅿️</span>
+            <div>
+              <p class="font-heading text-brown font-bold text-sm mb-1">駐車場</p>
+              <p class="text-brown-accent font-body">2台あり</p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-start gap-3">
+            <span class="text-2xl flex-shrink-0">📞</span>
+            <div>
+              <p class="font-heading text-brown font-bold text-sm mb-1">電話</p>
+              <a href="tel:09065821087" class="text-brown-warm hover:underline font-body">090-6582-1087</a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex items-start gap-3">
+            <span class="text-2xl flex-shrink-0">✉️</span>
+            <div>
+              <p class="font-heading text-brown font-bold text-sm mb-1">メール</p>
+              <a href="mailto:hiyorimaru0627@gmail.com" class="text-brown-warm hover:underline font-body break-all">hiyorimaru0627@gmail.com</a>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <hr class="border-cream-dark" />
+
+          <!-- Business Hours -->
+          <div>
+            <h3 class="font-heading text-brown font-bold text-lg mb-3">レッスン時間</h3>
+            <table class="w-full font-body text-sm">
+              <thead>
+                <tr class="border-b border-cream-dark">
+                  <th class="text-left py-2 text-brown font-heading">曜日</th>
+                  <th class="text-left py-2 text-brown font-heading">時間</th>
+                </tr>
+              </thead>
+              <tbody>
+                {businessHours.map((row) => (
+                  <tr class="border-b border-cream-dark last:border-b-0">
+                    <td class={`py-2 ${row.time === "定休日" ? "text-brown-accent/60" : "text-brown"}`}>
+                      {row.day}
+                    </td>
+                    <td class={`py-2 ${row.time === "定休日" ? "text-brown-accent/60" : "text-brown-accent"}`}>
+                      {row.time}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p class="text-brown-accent text-xs mt-3">※記載時間外もご相談に応じます</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

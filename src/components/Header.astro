@@ -1,0 +1,123 @@
+---
+const navLinks = [
+  { label: "特徴", href: "#features" },
+  { label: "講師紹介", href: "#about" },
+  { label: "コース・料金", href: "#pricing" },
+  { label: "よくある質問", href: "#faq" },
+  { label: "アクセス", href: "#access" },
+];
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-md transition-shadow duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="font-heading text-xl md:text-2xl text-brown-accent font-bold tracking-wide">
+        服部ピアノ教室
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-brown text-sm font-body hover:text-brown-accent transition-colors duration-200 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brown-warm after:transition-all after:duration-300 hover:after:w-full"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          class="bg-brown-warm text-white text-sm font-body font-medium rounded-full px-6 py-2.5 hover:opacity-90 transition-opacity duration-200 shadow-sm"
+        >
+          体験レッスン
+        </a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button
+        id="menu-toggle"
+        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 group"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+      >
+        <span class="block w-6 h-0.5 bg-brown transition-all duration-300 origin-center group-[.open]:rotate-45 group-[.open]:translate-y-2"></span>
+        <span class="block w-6 h-0.5 bg-brown transition-all duration-300 group-[.open]:opacity-0"></span>
+        <span class="block w-6 h-0.5 bg-brown transition-all duration-300 origin-center group-[.open]:-rotate-45 group-[.open]:-translate-y-2"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden bg-cream/95 backdrop-blur-md border-t border-cream-dark"
+  >
+    <nav class="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-4">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link text-brown text-base font-body hover:text-brown-accent transition-colors duration-200 py-2 border-b border-cream-dark/50"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#contact"
+        class="mobile-nav-link bg-brown-warm text-white text-base font-body font-medium rounded-full px-6 py-3 text-center hover:opacity-90 transition-opacity duration-200 mt-2"
+      >
+        体験レッスン
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from hiding behind fixed header -->
+<div class="h-16 md:h-20"></div>
+
+<script>
+  const header = document.getElementById("main-header");
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  // Mobile menu toggle
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.classList.toggle("open");
+    mobileMenu?.classList.toggle("hidden", !isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle?.classList.remove("open");
+      mobileMenu?.classList.add("hidden");
+      menuToggle?.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    });
+  });
+
+  // Scroll shadow
+  let lastScrollY = 0;
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 10) {
+      header?.classList.add("shadow-md");
+    } else {
+      header?.classList.remove("shadow-md");
+    }
+    lastScrollY = scrollY;
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
+</script>

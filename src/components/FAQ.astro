@@ -1,0 +1,111 @@
+---
+const faqItems = [
+  {
+    question: "楽器は必要ですか？",
+    answer: "歌のレッスンの場合は必要ありません。ピアノの場合は自宅での練習のために必要ですが、事情がある場合は教室でのレッスンのみでも大丈夫です。",
+  },
+  {
+    question: "レンタル楽器はありますか？",
+    answer: "折りたたみキーボードを1〜2ヶ月お貸しすることが可能です。",
+  },
+  {
+    question: "体験レッスンに下の子を連れていっても大丈夫ですか？",
+    answer: "大丈夫です。お人形やぬいぐるみ、絵本などで遊べるスペースがあります。お飲物はお茶のみでお願いしております。",
+  },
+  {
+    question: "振替レッスンはできますか？",
+    answer: "学校行事等で早めにご連絡いただければ、空き時間で対応いたします。体調不良の際はLINEでの動画レッスンも可能です。",
+  },
+  {
+    question: "発表会はありますか？",
+    answer: "年1回、12月にワークピア磐田ホールで開催しています。ソロとアンサンブルの2本立てです。",
+  },
+  {
+    question: "体験レッスンの申し込み方法は？",
+    answer: "LINE公式アカウントからスタンプやコメントでお気軽にご連絡ください。",
+  },
+];
+---
+
+<section id="faq" class="bg-cream-dark py-20 px-4">
+  <div class="max-w-3xl mx-auto observe-fade">
+    <!-- Section Heading -->
+    <div class="text-center mb-12">
+      <span class="font-accent text-brown-warm text-2xl">FAQ</span>
+      <h2 class="font-heading text-3xl md:text-4xl text-brown mt-2">よくある質問</h2>
+    </div>
+
+    <!-- Accordion -->
+    <div class="space-y-4">
+      {faqItems.map((item, index) => (
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm" data-faq-item>
+          <button
+            class="w-full p-5 flex justify-between items-center cursor-pointer hover:bg-cream-dark transition text-left"
+            data-faq-toggle
+            aria-expanded="false"
+            aria-controls={`faq-answer-${index}`}
+          >
+            <span class="font-heading text-brown text-lg pr-4">{item.question}</span>
+            <span class="text-brown-warm flex-shrink-0 transition-transform duration-300" data-faq-icon>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19" class="faq-vertical-line transition-opacity duration-300" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </span>
+          </button>
+          <div
+            id={`faq-answer-${index}`}
+            class="faq-answer"
+            style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease;"
+          >
+            <div class="p-5 pt-0 text-brown-accent font-body leading-relaxed">
+              {item.answer}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleButtons = document.querySelectorAll("[data-faq-toggle]");
+
+    toggleButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest("[data-faq-item]");
+        if (!item) return;
+
+        const answer = item.querySelector(".faq-answer") as HTMLElement;
+        const icon = button.querySelector("[data-faq-icon]") as HTMLElement;
+        const verticalLine = button.querySelector(".faq-vertical-line") as SVGLineElement;
+        const isOpen = button.getAttribute("aria-expanded") === "true";
+
+        if (isOpen) {
+          // Close
+          answer.style.maxHeight = "0";
+          button.setAttribute("aria-expanded", "false");
+          if (verticalLine) verticalLine.style.opacity = "1";
+        } else {
+          // Close all others first
+          document.querySelectorAll("[data-faq-item]").forEach((otherItem) => {
+            const otherAnswer = otherItem.querySelector(".faq-answer") as HTMLElement;
+            const otherButton = otherItem.querySelector("[data-faq-toggle]") as HTMLElement;
+            const otherVertical = otherItem.querySelector(".faq-vertical-line") as SVGLineElement;
+            if (otherAnswer && otherItem !== item) {
+              otherAnswer.style.maxHeight = "0";
+              otherButton?.setAttribute("aria-expanded", "false");
+              if (otherVertical) otherVertical.style.opacity = "1";
+            }
+          });
+
+          // Open this one
+          answer.style.maxHeight = answer.scrollHeight + "px";
+          button.setAttribute("aria-expanded", "true");
+          if (verticalLine) verticalLine.style.opacity = "0";
+        }
+      });
+    });
+  });
+</script>

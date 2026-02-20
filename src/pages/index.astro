@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import About from '../components/About.astro';
+import Pricing from '../components/Pricing.astro';
+import FAQ from '../components/FAQ.astro';
+import Access from '../components/Access.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  <main>
+    <Hero />
+
+    <!-- Wave: cream → cream -->
+    <div class="relative -mt-1">
+      <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#FDF8F0"/>
+      </svg>
+    </div>
+
+    <Features />
+
+    <!-- Wave: cream → cream-dark -->
+    <div class="relative -mt-1">
+      <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,20 C240,60 480,0 720,40 C960,80 1200,20 1440,40 L1440,80 L0,80 Z" fill="#F5EDE3"/>
+      </svg>
+    </div>
+
+    <About />
+
+    <!-- Wave: cream-dark → cream -->
+    <div class="relative -mt-1 bg-cream-dark">
+      <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,80 L0,80 Z" fill="#FDF8F0"/>
+      </svg>
+    </div>
+
+    <Pricing />
+
+    <!-- Wave: cream → cream-dark -->
+    <div class="relative -mt-1">
+      <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,20 C360,70 720,10 1080,50 C1260,70 1380,50 1440,30 L1440,80 L0,80 Z" fill="#F5EDE3"/>
+      </svg>
+    </div>
+
+    <FAQ />
+
+    <!-- Wave: cream-dark → cream -->
+    <div class="relative -mt-1 bg-cream-dark">
+      <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C240,0 480,60 720,30 C960,0 1200,60 1440,40 L1440,80 L0,80 Z" fill="#FDF8F0"/>
+      </svg>
+    </div>
+
+    <Access />
+
+    <!-- Wave: cream → brown-accent (contact) -->
+    <div class="relative -mt-1">
+      <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#8B6F4E"/>
+      </svg>
+    </div>
+
+    <Contact />
+
+    <!-- Wave: brown-accent → brown (footer) -->
+    <div class="relative -mt-1 bg-brown-accent">
+      <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,20 C360,60 720,0 1080,40 C1260,60 1380,40 1440,20 L1440,80 L0,80 Z" fill="#3D3028"/>
+      </svg>
+    </div>
+  </main>
+  <Footer />
+</Layout>
