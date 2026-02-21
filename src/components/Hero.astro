@@ -3,15 +3,28 @@
 ---
 
 <section class="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background Image -->
+  <!-- Background Video (YouTube) -->
   <div class="absolute inset-0">
+    <!-- Fallback Image (shown until video loads) -->
     <img
       src="/images/hero.jpg"
       alt="ピアノレッスンの風景"
-      class="w-full h-full object-cover"
+      class="absolute inset-0 w-full h-full object-cover"
       loading="eager"
       decoding="async"
     />
+    <!-- YouTube Embed -->
+    <div class="absolute inset-0 overflow-hidden">
+      <iframe
+        id="hero-video"
+        src="https://www.youtube.com/embed/dsGThhgrzmM?autoplay=1&mute=1&loop=1&playlist=dsGThhgrzmM&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full pointer-events-none"
+        allow="autoplay; encrypted-media"
+        frameborder="0"
+        loading="eager"
+        title="教室の紹介動画"
+      ></iframe>
+    </div>
     <!-- Dark Overlay -->
     <div class="absolute inset-0 bg-black/40"></div>
   </div>
