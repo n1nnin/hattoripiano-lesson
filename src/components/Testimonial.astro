@@ -1,55 +1,32 @@
 ---
-// NOTE: この声はサンプルです。実際の生徒さんの声が集まり次第、差し替えてください。
-const testimonials = [
-  {
-    quote: "子どもが「ピアノの日が楽しみ！」と毎週言っています。厳しくないのに、しっかり上達しているのが不思議です。",
-    name: "M.K さま",
-    detail: "小学1年生のお母さま",
-    icon: "👩"
-  },
-  {
-    quote: "60代からのスタートでしたが、半年で好きな曲が弾けるようになりました。先生がいつも笑顔で迎えてくれるので、通うのが楽しみです。",
-    name: "Y.T さま",
-    detail: "60代 フリーレッスン",
-    icon: "👨"
-  },
-  {
-    quote: "仕事が不規則でも都度予約できるので続けられています。子どもの頃に挫折したピアノに、大人になって再チャレンジできました。",
-    name: "S.A さま",
-    detail: "40代 会社員",
-    icon: "👨"
-  }
-];
 ---
 
-<section class="py-20 md:py-24 bg-cream-dark">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="testimonial" class="py-20 md:py-28 bg-cream-dark">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Heading -->
     <div class="text-center mb-14 observe-fade">
-      <p class="font-accent text-2xl text-brown-warm mb-2">Voice</p>
-      <h2 class="font-heading text-3xl md:text-4xl font-bold text-brown">生徒さん・保護者の声</h2>
+      <p class="font-accent text-2xl text-brown-warm mb-2">Message</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-brown">先生からのメッセージ</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {testimonials.map((t) => (
-        <div class="bg-white rounded-2xl shadow-md p-6 relative observe-fade">
-          <!-- Quote mark -->
-          <div class="absolute -top-3 left-6 w-8 h-8 bg-brown-warm rounded-full flex items-center justify-center">
-            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.998 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.986z" />
-            </svg>
-          </div>
-          <p class="font-body text-brown leading-relaxed mt-4 mb-6 text-sm">{t.quote}</p>
-          <div class="flex items-center gap-3 border-t border-cream-dark pt-4">
-            <span class="text-2xl">{t.icon}</span>
-            <div>
-              <p class="font-heading text-sm font-bold text-brown">{t.name}</p>
-              <p class="text-xs text-brown-accent">{t.detail}</p>
-            </div>
-          </div>
-        </div>
-      ))}
+    <div class="observe-fade bg-white rounded-2xl shadow-md p-8 md:p-12 text-center">
+      <p class="font-body text-brown leading-relaxed text-lg mb-6">
+        「ピアノを弾いてみたい」「もう一度やりたい」——<br class="hidden md:inline" />
+        その気持ちが、はじめの一歩です。
+      </p>
+      <p class="font-body text-brown leading-relaxed mb-6">
+        小さなお子さまから70代の方まで、初心者も経験者も、<br class="hidden md:inline" />
+        それぞれのペースで音楽を楽しんでいらっしゃいます。<br class="hidden md:inline" />
+        「うまく弾けるかな」「続けられるかな」という不安は、<br class="hidden md:inline" />
+        体験レッスンでお会いした時に、きっと安心に変わります。
+      </p>
+      <p class="font-body text-brown-accent text-sm">
+        教室でお待ちしています。——服部 由美子
+      </p>
     </div>
 
-    <p class="text-center text-xs text-brown-accent/60 mt-8">※ 掲載の声はイメージです。実際の生徒さんの声を準備中です。</p>
+    <p class="text-center text-sm text-brown-accent mt-8 observe-fade">
+      ※ 生徒さん・保護者の方の声は、準備ができ次第こちらに掲載いたします
+    </p>
   </div>
 </section>
