@@ -20,7 +20,7 @@ const navLinks = [
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-8">
+      <nav class="hidden lg:flex items-center gap-8" role="navigation" aria-label="メインナビゲーション">
         {navLinks.map((link) => (
           <a
             href={link.href}
@@ -40,7 +40,7 @@ const navLinks = [
       <!-- Mobile Hamburger -->
       <button
         id="menu-toggle"
-        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 group"
+        class="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 group"
         aria-label="メニューを開く"
         aria-expanded="false"
       >
@@ -55,8 +55,9 @@ const navLinks = [
   <div
     id="mobile-menu"
     class="lg:hidden hidden bg-cream/95 backdrop-blur-md border-t border-cream-dark"
+    aria-hidden="true"
   >
-    <nav class="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-4">
+    <nav class="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-4" role="navigation" aria-label="モバイルナビゲーション">
       {navLinks.map((link) => (
         <a
           href={link.href}
@@ -88,6 +89,8 @@ const navLinks = [
     const isOpen = menuToggle.classList.toggle("open");
     mobileMenu?.classList.toggle("hidden", !isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
+    mobileMenu?.setAttribute("aria-hidden", String(!isOpen));
 
     if (isOpen) {
       document.body.style.overflow = "hidden";

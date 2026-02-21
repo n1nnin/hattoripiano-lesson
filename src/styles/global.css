@@ -4,8 +4,8 @@
   --color-cream: #FDF8F0;
   --color-cream-dark: #F5EDE3;
   --color-brown: #3D3028;
-  --color-brown-accent: #8B6F4E;
-  --color-brown-warm: #C4956A;
+  --color-brown-accent: #6B5038;
+  --color-brown-warm: #A07040;
   --color-white: #FFFFFF;
 
   --font-heading: "Zen Maru Gothic", sans-serif;
@@ -59,4 +59,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .observe-fade.is-visible {
   animation: fade-in-up 0.8s ease-out forwards;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brown-warm);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

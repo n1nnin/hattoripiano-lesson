@@ -8,22 +8,22 @@
     <!-- Fallback Image (shown until video loads) -->
     <img
       src="/images/hero.jpg"
-      alt="ピアノレッスンの風景"
+      alt="服部ピアノ教室のレッスン風景"
       class="absolute inset-0 w-full h-full object-cover"
       loading="eager"
       decoding="async"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
     />
-    <!-- YouTube Embed -->
-    <div class="absolute inset-0 overflow-hidden">
-      <iframe
-        id="hero-video"
-        src="https://www.youtube.com/embed/dsGThhgrzmM?autoplay=1&mute=1&loop=1&playlist=dsGThhgrzmM&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full pointer-events-none"
-        allow="autoplay; encrypted-media"
-        frameborder="0"
-        loading="eager"
-        title="教室の紹介動画"
-      ></iframe>
+    <!-- YouTube Embed (lazy - click to play) -->
+    <div class="absolute inset-0 overflow-hidden" id="hero-video-container">
+      <button
+        id="hero-video-play"
+        class="absolute inset-0 w-full h-full cursor-default z-0"
+        aria-label="背景動画を再生"
+        style="display: none;"
+      ></button>
     </div>
     <!-- Dark Overlay -->
     <div class="absolute inset-0 bg-black/40"></div>
@@ -67,4 +67,25 @@
       <circle cx="12" cy="12" r="3" fill="currentColor" class="animate-pulse" />
     </svg>
   </div>
+
+<script>
+  // Lazy load YouTube video after page load
+  if (window.innerWidth >= 768) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const container = document.getElementById('hero-video-container');
+        if (container) {
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube.com/embed/dsGThhgrzmM?autoplay=1&mute=1&loop=1&playlist=dsGThhgrzmM&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1';
+          iframe.className = 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full pointer-events-none';
+          iframe.allow = 'autoplay; encrypted-media';
+          iframe.setAttribute('frameborder', '0');
+          iframe.title = '教室の紹介動画';
+          container.querySelector('#hero-video-play')?.remove();
+          container.appendChild(iframe);
+        }
+      }, 2000);
+    });
+  }
+</script>
 </section>

@@ -3,8 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
+import TargetAudience from '../components/TargetAudience.astro';
 import About from '../components/About.astro';
 import Pricing from '../components/Pricing.astro';
+import Testimonial from '../components/Testimonial.astro';
 import FAQ from '../components/FAQ.astro';
 import Blog from '../components/Blog.astro';
 import Access from '../components/Access.astro';
@@ -26,6 +28,8 @@ import Footer from '../components/Footer.astro';
 
     <Features />
 
+    <TargetAudience />
+
     <!-- Wave: cream → cream-dark -->
     <div class="relative -mt-1">
       <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -44,8 +48,17 @@ import Footer from '../components/Footer.astro';
 
     <Pricing />
 
-    <!-- Wave: cream → cream-dark -->
+    <!-- Wave: cream → cream-dark (testimonial) -->
     <div class="relative -mt-1">
+      <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,30 C240,70 480,10 720,50 C960,80 1200,30 1440,40 L1440,80 L0,80 Z" fill="#F5EDE3"/>
+      </svg>
+    </div>
+
+    <Testimonial />
+
+    <!-- Wave: cream-dark → cream-dark -->
+    <div class="relative -mt-1 bg-cream-dark">
       <svg class="block w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <path d="M0,20 C360,70 720,10 1080,50 C1260,70 1380,50 1440,30 L1440,80 L0,80 Z" fill="#F5EDE3"/>
       </svg>
